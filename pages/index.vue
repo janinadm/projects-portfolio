@@ -2,17 +2,22 @@
   <div class="home-page">
     <section class="hero">
       <div class="hero-content">
-        <div class="greeting">
-          <h2>Hello, I'm Janina</h2>
+        <div class="hero-image">
+          <img src="/images/hero-profile.png" alt="Janina" />
         </div>
-        <h1>Frontend Developer &amp; Designer</h1>
-        <p>
-          I craft beautiful, performant web experiences using Vue 3, TypeScript, and modern web technologies.
-          Passionate about clean code, user experience, and leveraging AI to enhance development workflows.
-        </p>
-        <div class="hero-actions">
-          <NuxtLink to="/projects" class="btn btn-primary">View My Work</NuxtLink>
-          <NuxtLink to="/contact" class="btn btn-secondary">Get In Touch</NuxtLink>
+        <div class="hero-text">
+          <div class="greeting">
+            <h2>Hello, I'm Janina</h2>
+          </div>
+          <h1>Frontend Developer &amp; Designer</h1>
+          <p>
+            I craft beautiful, performant web experiences using Vue 3, TypeScript, and modern web technologies.
+            Passionate about clean code, user experience, and leveraging AI to enhance development workflows.
+          </p>
+          <div class="hero-actions">
+            <NuxtLink to="/projects" class="btn btn-primary">View My Work</NuxtLink>
+            <NuxtLink to="/contact" class="btn btn-secondary">Get In Touch</NuxtLink>
+          </div>
         </div>
       </div>
     </section>
@@ -111,12 +116,69 @@
   max-width: 1200px;
   margin: 0 auto;
   padding: 4rem 2rem;
-  text-align: center;
+  position: relative;
+  overflow: hidden;
+  min-height: 500px;
 }
 
 .hero-content {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 400px;
+  border-radius: 12px;
+  transition: box-shadow 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+
+  &:hover {
+    box-shadow: 0 0 0 3px var(--c-accent), 0 0 30px rgba(214, 76, 143, 0.5);
+  }
+}
+
+.hero-image {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding-right: 0;
+  padding-left: 42%;
+  z-index: 1;
+  pointer-events: none;
+
+  img {
+    width: 100%;
+    max-width: 1050px;
+    height: auto;
+    opacity: 0.4;
+    filter: grayscale(20%) drop-shadow(0 12px 36px rgba(214, 76, 143, 0.25));
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    border-radius: 8px;
+    pointer-events: auto;
+  }
+
+  .hero-content:hover & img {
+    transform: scale(0.98);
+    opacity: 0.6;
+    filter: grayscale(0%) drop-shadow(0 12px 36px rgba(214, 76, 143, 0.4));
+  }
+}
+
+.hero-text {
+  position: relative;
+  z-index: 2;
+  text-align: center;
   max-width: 700px;
-  margin: 0 auto;
+  padding: 2.5rem;
+  background: transparent;
+  border-radius: 12px;
+  pointer-events: none;
+  margin-right: auto;
+  margin-left: 0;
+
+  * {
+    pointer-events: auto;
+  }
 }
 
 .greeting {
@@ -127,6 +189,7 @@
     color: var(--c-accent);
     font-weight: 500;
     letter-spacing: 0.05em;
+    text-shadow: 0 0 10px rgba(214, 76, 143, 0.3);
   }
 }
 
@@ -149,6 +212,34 @@
   gap: 1rem;
   justify-content: center;
   flex-wrap: wrap;
+}
+
+// Responsive
+@media (max-width: 768px) {
+  .hero {
+    min-height: 400px;
+    padding: 3rem 1.5rem;
+  }
+
+  .hero-content {
+    min-height: 350px;
+  }
+
+  .hero-text {
+    padding: 1.5rem;
+  }
+
+  .hero h1 {
+    font-size: 2.5rem;
+  }
+
+  .hero p {
+    font-size: 1rem;
+  }
+
+  .hero-image img {
+    max-width: 250px;
+  }
 }
 
 .btn {
@@ -381,6 +472,23 @@
 @media (max-width: 768px) {
   .hero {
     padding: 2rem 1rem;
+  }
+
+  .hero-content {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+
+  .hero-text {
+    text-align: center;
+  }
+
+  .hero-image {
+    order: -1;
+  }
+
+  .hero-image img {
+    max-width: 300px;
   }
 
   .hero h1 {

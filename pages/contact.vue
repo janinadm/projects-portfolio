@@ -68,16 +68,20 @@
       <div class="contact-info-section">
         <h2>Other Ways to Connect</h2>
         <div class="contact-methods">
-          <a href="mailto:janina@example.com" class="contact-method">
-            <span class="icon">✉️</span>
+          <a href="mailto:jaanina.drbtu@gmail.com" class="contact-method">
+            <span class="icon gmail" aria-hidden="true">
+              <img src="/icons/gmail.svg" alt="Gmail" class="icon-img" />
+            </span>
             <div>
               <h3>Email</h3>
-              <p>janina@example.com</p>
+              <p>jaanina.drbtu@gmail.com</p>
             </div>
           </a>
 
-          <a href="https://linkedin.com" target="_blank" rel="noopener" class="contact-method">
-            <span class="icon">in</span>
+          <a href="https://www.linkedin.com/in/janina-dorobantu-b204b9192/" target="_blank" rel="noopener" class="contact-method">
+            <span class="icon linkedin" aria-hidden="true">
+              <FontAwesomeIcon :icon="['fab','linkedin']" />
+            </span>
             <div>
               <h3>LinkedIn</h3>
               <p>LinkedIn Profile</p>
@@ -85,18 +89,22 @@
           </a>
 
           <a href="https://github.com" target="_blank" rel="noopener" class="contact-method">
-            <span class="icon">⚙️</span>
+            <span class="icon github" aria-hidden="true">
+              <FontAwesomeIcon :icon="['fab','github']" />
+            </span>
             <div>
               <h3>GitHub</h3>
               <p>My Projects</p>
             </div>
           </a>
 
-          <a href="https://twitter.com" target="_blank" rel="noopener" class="contact-method">
-            <span class="icon">𝕏</span>
+          <a href="https://wa.me/34628946280" target="_blank" rel="noopener" class="contact-method">
+            <span class="icon whatsapp" aria-hidden="true">
+              <FontAwesomeIcon :icon="['fab','whatsapp']" />
+            </span>
             <div>
-              <h3>Twitter</h3>
-              <p>@yourhandle</p>
+              <h3>WhatsApp</h3>
+              <p>+34 628 946 280</p>
             </div>
           </a>
         </div>
@@ -324,6 +332,34 @@ const handleSubmit = async () => {
     justify-content: center;
     font-size: 1.5rem;
     min-width: 50px;
+  }
+
+  /* Per-icon brand colors and WhatsApp circular background */
+  .icon.gmail {
+    color: #DB4437;
+  }
+
+  .icon.linkedin {
+    color: #0A66C2;
+  }
+
+  .icon.github {
+    color: #111111;
+  }
+
+  .icon.whatsapp {
+    color: #25D366;
+  }
+
+  .icon svg {
+    width: 1.1em;
+    height: 1.1em;
+  }
+
+  .icon-img {
+    width: 1.1em;
+    height: 1.1em;
+    display: block;
   }
 
   h3 {

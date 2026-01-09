@@ -1,57 +1,52 @@
 /* =========================
    DESIGN TOKENS
-   macOS Tahoe-inspired system colors
+   Light and Dark Mode Support
    ========================= */
 
 :root {
-  /* Background colors - soft, never pure white/black */
+  /* Light Mode (default) */
   --c-bg-primary: #f5f5f7;
+  --c-bg-primary-rgb: 245, 245, 247;
   --c-bg-secondary: #ffffff;
   --c-bg-tertiary: #fafafa;
   --c-bg-elevated: rgba(255, 255, 255, 0.7);
   
-  /* Background gradient - very subtle variation */
   --c-bg-gradient-start: #f8f8fa;
   --c-bg-gradient-end: #f2f2f5;
   
-  /* Panel/Surface colors - elevated surfaces */
   --c-panel-bg: #ffffff;
   --c-panel-bg-subtle: rgba(255, 255, 255, 0.85);
   --c-panel-border: rgba(0, 0, 0, 0.05);
   
-  /* Surface colors with subtle translucency */
   --c-surface: rgba(255, 255, 255, 0.8);
   --c-surface-hover: rgba(255, 255, 255, 0.9);
   --c-surface-active: rgba(255, 255, 255, 0.95);
   
-  /* Card colors */
   --c-card-bg: #ffffff;
   --c-card-border: rgba(0, 0, 0, 0.04);
   --c-card-hover-bg: rgba(255, 255, 255, 0.95);
   
-  /* Border colors - very subtle */
   --c-border: rgba(0, 0, 0, 0.06);
   --c-border-strong: rgba(0, 0, 0, 0.12);
   --c-border-subtle: rgba(0, 0, 0, 0.03);
   
-  /* Text colors - gentle contrast */
-  --c-text-primary: #1d1d1f;
+  --c-text-primary: #1f1f1f;
   --c-text-secondary: #6e6e73;
   --c-text-tertiary: #86868b;
   --c-text-disabled: #a1a1a6;
   
-  /* Accent colors - calm, premium blue */
-  --c-accent: #007aff;
-  --c-accent-hover: #0051d5;
-  --c-accent-active: #0040a6;
-  --c-accent-subtle: rgba(0, 122, 255, 0.1);
-  
-  /* Status colors - muted versions */
+  /* Light mode accent: Pink */
+  --c-accent: #D64C8F;
+  --c-accent-hover: #C63A7F;
+  --c-accent-active: #B82870;
+  --c-accent-subtle: rgba(214, 76, 143, 0.1);
+
+  /* Status colors */
   --c-success: #34c759;
   --c-warning: #ff9500;
   --c-error: #ff3b30;
   
-  /* Spacing scale - 8px base unit */
+  /* Spacing scale */
   --space-1: 4px;
   --space-2: 8px;
   --space-3: 16px;
@@ -63,7 +58,7 @@
   --space-9: 80px;
   --space-10: 96px;
   
-  /* Border radius - subtle rounding */
+  /* Border radius */
   --radius-xs: 4px;
   --radius-sm: 6px;
   --radius-md: 10px;
@@ -72,24 +67,23 @@
   --radius-2xl: 24px;
   --radius-full: 9999px;
   
-  /* Shadows - layered depth, very subtle */
+  /* Shadows */
   --shadow-xs: 0 1px 2px rgba(0, 0, 0, 0.04);
   --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.06);
   --shadow-md: 0 4px 16px rgba(0, 0, 0, 0.08);
   --shadow-lg: 0 8px 32px rgba(0, 0, 0, 0.1);
   --shadow-xl: 0 16px 64px rgba(0, 0, 0, 0.12);
   
-  /* Panel shadows - softer, more defined */
   --shadow-panel: 0 2px 12px rgba(0, 0, 0, 0.05), 0 1px 3px rgba(0, 0, 0, 0.08);
   --shadow-card: 0 1px 6px rgba(0, 0, 0, 0.04), 0 1px 2px rgba(0, 0, 0, 0.06);
   --shadow-card-hover: 0 4px 16px rgba(0, 0, 0, 0.06), 0 2px 4px rgba(0, 0, 0, 0.08);
   
-  /* Blur effects - subtle translucency */
+  /* Blur effects */
   --blur-sm: blur(10px);
   --blur-md: blur(20px);
   --blur-lg: blur(40px);
   
-  /* Typography scale */
+  /* Typography */
   --font-family-system: -apple-system, BlinkMacSystemFont, 'SF Pro Display', 'SF Pro Text', 'Helvetica Neue', Helvetica, Arial, sans-serif;
   --font-size-xs: 11px;
   --font-size-sm: 13px;
@@ -115,7 +109,7 @@
   --transition-base: 250ms ease;
   --transition-slow: 350ms ease;
   
-  /* Z-index scale */
+  /* Z-index */
   --z-base: 1;
   --z-dropdown: 100;
   --z-sticky: 200;
@@ -124,4 +118,43 @@
   --z-modal: 500;
   --z-popover: 600;
   --z-tooltip: 700;
+}
+
+/* Dark Mode */
+[data-theme='dark'] {
+  --c-bg-primary: #1a1a1a;
+  --c-bg-primary-rgb: 26, 26, 26;
+  --c-bg-secondary: #252525;
+  --c-bg-tertiary: #2a2a2a;
+  --c-bg-elevated: rgba(255, 255, 255, 0.05);
+  
+  --c-bg-gradient-start: #1f1f1f;
+  --c-bg-gradient-end: #0f0f0f;
+  
+  --c-panel-bg: #252525;
+  --c-panel-bg-subtle: rgba(255, 255, 255, 0.08);
+  --c-panel-border: rgba(255, 255, 255, 0.1);
+  
+  --c-surface: rgba(255, 255, 255, 0.08);
+  --c-surface-hover: rgba(255, 255, 255, 0.12);
+  --c-surface-active: rgba(255, 255, 255, 0.15);
+  
+  --c-card-bg: #252525;
+  --c-card-border: rgba(255, 255, 255, 0.08);
+  --c-card-hover-bg: rgba(255, 255, 255, 0.12);
+  
+  --c-border: rgba(255, 255, 255, 0.1);
+  --c-border-strong: rgba(255, 255, 255, 0.15);
+  --c-border-subtle: rgba(255, 255, 255, 0.05);
+  
+  --c-text-primary: #f5f5f7;
+  --c-text-secondary: #a0a0a5;
+  --c-text-tertiary: #86868b;
+  --c-text-disabled: #6e6e73;
+  
+  /* Dark mode accent: Light pink */
+  --c-accent: #FF8FB2;
+  --c-accent-hover: #FF7AA8;
+  --c-accent-active: #FF659E;
+  --c-accent-subtle: rgba(255, 143, 178, 0.15);
 }
