@@ -117,38 +117,38 @@
   margin: 0 auto;
   padding: 4rem 2rem;
   position: relative;
-  overflow: hidden;
-  min-height: 500px;
+  overflow: visible;
+  min-height: auto;
 }
 
 .hero-content {
   position: relative;
-  display: flex;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 3rem;
   align-items: center;
-  justify-content: center;
-  min-height: 400px;
   border-radius: 12px;
+  padding: 3rem;
   transition: box-shadow 0.4s cubic-bezier(0.4, 0, 0.2, 1);
 
   &:hover {
-    box-shadow: 0 0 0 3px var(--c-accent), 0 0 30px rgba(214, 76, 143, 0.5);
+    box-shadow: 0 0 0 2px rgba(214, 76, 143, 0.5), 0 0 25px rgba(214, 76, 143, 0.2);
   }
 }
 
 .hero-image {
-  position: absolute;
-  inset: 0;
+  position: relative;
   display: flex;
   align-items: center;
   justify-content: center;
-  padding-right: 0;
-  padding-left: 42%;
-  z-index: 1;
+  padding: 0;
+  z-index: 2;
+  order: -1;
   pointer-events: none;
 
   img {
     width: 100%;
-    max-width: 1050px;
+    max-width: 750px;
     height: auto;
     opacity: 0.4;
     filter: grayscale(20%) drop-shadow(0 12px 36px rgba(214, 76, 143, 0.25));
@@ -166,14 +166,14 @@
 
 .hero-text {
   position: relative;
-  z-index: 2;
-  text-align: center;
-  max-width: 700px;
-  padding: 2.5rem;
+  z-index: 3;
+  text-align: left;
+  max-width: none;
+  padding: 0;
   background: transparent;
-  border-radius: 12px;
+  border-radius: 0;
   pointer-events: none;
-  margin-right: auto;
+  margin-right: 0;
   margin-left: 0;
 
   * {
@@ -215,18 +215,44 @@
 }
 
 // Responsive
+@media (max-width: 1024px) {
+  .hero-content {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+
+  .hero-image {
+    order: 0;
+    max-width: 500px;
+    margin: 0 auto;
+
+    img {
+      max-width: 100%;
+    }
+  }
+
+  .hero-text {
+    text-align: center;
+  }
+}
+
 @media (max-width: 768px) {
   .hero {
-    min-height: 400px;
+    min-height: auto;
     padding: 3rem 1.5rem;
   }
 
   .hero-content {
-    min-height: 350px;
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
   }
 
-  .hero-text {
-    padding: 1.5rem;
+  .hero-image {
+    max-width: 400px;
+
+    img {
+      max-width: 100%;
+    }
   }
 
   .hero h1 {
@@ -235,10 +261,6 @@
 
   .hero p {
     font-size: 1rem;
-  }
-
-  .hero-image img {
-    max-width: 250px;
   }
 }
 
